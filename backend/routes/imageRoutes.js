@@ -3,8 +3,7 @@ const router = express.Router()
 const mongoose = require('mongoose')
 
 const multer = require('multer')
-// const Grid = require('gridfs-stream')
-const GridFsStorage = require('multer-gridfs-storage')
+const { GridFsStorage } = require('multer-gridfs-storage')
 
 // --------------CONNECTION-----------------
 require('dotenv').config()
@@ -21,9 +20,7 @@ let gfs
 conn.once('open', () => {
   gfs = new mongoose.mongo.GridFSBucket(conn.db, {
     bucketName: 'uploads'
-  }
-
-  )
+  })
 })
 
 // Storage Engine
