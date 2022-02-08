@@ -44,7 +44,17 @@ const storage = new GridFsStorage({
 })
 const upload = multer({ storage })
 
+router.post('/', upload.single('image'), async (req, res) => {
+  if (req.file.contentType === 'image/jpeg' ||
+    req.file.contentType === 'image/jpg' ||
+    req.file.contentType === 'image/png') {
+    return res.json({ id: req.file.id })
+  }
+  else {
+    return res.json({ msg: 'Invalid Image' })
+  }
 
+})
 
 
 

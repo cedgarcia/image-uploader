@@ -1,4 +1,4 @@
-const express =require('express')
+const express = require('express')
 const connectDB = require('./config/db')
 const dotenv = require('dotenv')
 const imageRoutes = require('./routes/imageRoutes')
@@ -11,7 +11,7 @@ connectDB()
 
 app.use(express.json());
 
-app.use('/api/imageRoutes',imageRoutes)
+app.use('/imageRoutes', imageRoutes)
 
 
 
