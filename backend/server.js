@@ -1,18 +1,18 @@
 const express = require('express')
 const connectDB = require('./config/db')
 const dotenv = require('dotenv')
-const imageRoutes = require('./routes/imageRoutes')
+const image = require('./routes/image')
 
 const app = express();
 
 dotenv.config()
 connectDB()
 
-
 app.use(express.json());
-
-app.use('/imageRoutes', imageRoutes)
-
+app.use('/image', image)
+// app.use('/',(req,res)=>{
+//   res.send('api is running')
+// })
 
 
 const PORT = process.env.PORT || 5000
