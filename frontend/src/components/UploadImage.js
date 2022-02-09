@@ -8,6 +8,7 @@ const UploadImage = () => {
   const [image, setImage] = useState(null);
   const [id, setId] = useState(null);
   const [loader, setLoader] = useState(null);
+  const [ids, setIds] = useState([]);
   
 
   useEffect(() => {
@@ -38,7 +39,8 @@ useEffect(()=>{
     const uploadImage = async ()=>{
       const res = await axios.post('/image',data, config)
       setId(res.data.id);
-    setLoader(null)
+      setIds([...ids, res.data.id]);
+      setLoader(null)
 
     }
     uploadImage()
@@ -49,16 +51,16 @@ useEffect(()=>{
 },[image])
 
 
-
-
-
 // Uploading Images
   const dragFile = (e) =>{
     setImage(e.target.files[0])
   }
   const selectFile = () => {
-    const input =document.querySelector('input')
-    input.click()
+    if(!id){
+
+      const input =document.querySelector('input')
+      input.click()
+    }
   }
 
 
