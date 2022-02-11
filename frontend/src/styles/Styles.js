@@ -11,11 +11,13 @@ export const UploadImageWrap = styled.div`
   p{
     padding:1rem 0;
     font-size:1.2rem;
+    color:black;
   }
 .drag-here {
   position: relative;
   width: 100%;
   background: #f6f8fb;
+  height:26rem;
   padding: 35px 0px;
   display: flex;
   justify-content: center;
@@ -24,6 +26,9 @@ export const UploadImageWrap = styled.div`
   border: 1px dashed blue;
   box-sizing: border-box;
   border-radius: 12px;
+  p{
+    font-size:1.4rem;
+  }
 }
   
   input {
